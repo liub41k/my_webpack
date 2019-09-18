@@ -1,0 +1,219 @@
+
+=smooth-scroll
+	-webkit-overflow-scrolling: touch
+
+=smooth-font
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+=lg
+	+r(1259)
+		@content
+
+=md
+	+r(1023)
+		@content
+
+=sm
+	+r(767)
+		@content
+
+=xs
+	+r(479)
+		@content
+
+// =ms
+// 	+r(429)
+// 		@content
+
+=f($font-size: null, $font-weight: null, $line-height: null)
+	@if $font-size != null
+		font-size: $font-size
+	@if $font-weight != null
+		font-weight: $font-weight
+	@if $line-height != null
+		line-height: $line-height
+
+
+// width
+=r($width)
+	@media only screen and (max-width: $width+ "px")
+		@content
+
+=rmin($width)
+	@media only screen and (min-width: $width+ "px")
+		@content
+
+=text-overflow
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+
+%pseudo
+	position: relative
+	&:before,&:after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+=pseudo
+	@extend %pseudo
+
+=hover
+	&:hover
+		@content
+
+=coverdiv
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+=cover
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: 50% 50%
+=contain
+	background-repeat: no-repeat
+	background-size: contain
+	background-position: 50% 50%
+
+=bg-size($width: 100%, $height: 100%)
+	background-size: $width $height
+
+// vertical-align at center
+=vcenter
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
+
+//simple gradient
+=g($color1, $color2)
+	background-image: linear-gradient($color1, $color2)
+
+// font-family 
+=font($alias, $name)
+	@font-face
+		font-family: $alias
+		src: url("../fonts/" + $name + ".woff2") format("woff2"), url("../fonts/" + $name + ".woff") format("woff")
+		font-weight: normal
+		font-style: normal
+// to use:
+//+font(black, cytiapro-black-webfont)
+
+// TRANSITION
+=tr($what)
+	transition: $what
+
+=hide-text
+	font: 0/0 a
+	text-shadow: none
+	color: transparent
+
+=hidetext
+	+hide-text
+
+=clr
+	&:after
+		content: " "
+		display: table
+		clear: both
+
+
+=placeholder-color($color)
+	&::placeholder
+		color: $color
+
+=placeholder
+	&::placeholder
+		@content
+
+=unselectable
+	user-select: none
+
+=nosel
+	+unselectable
+
+=prevent-text
+	word-break: break-all
+	word-break: break-word
+	hyphens: auto
+
+=font-smoothing($val: antialiased)
+	-webkit-font-smoothing: $val
+	-moz-osx-font-smoothing: grayscale
+
+=sel
+	& ::selection
+			@content
+
+
+=rotate($var)
+	transform: rotate($var+deg)
+
+=blur($var)
+	filter: blur($var)
+
+=scale($var)
+	transform: scale($var)
+
+=counter($var, $sep)
+	counter-reset: list + $var
+	> li
+		&:before
+		content: counter(list + $var) $sep
+		counter-increment: list + $var
+
+
+=flex-size($val)
+	flex: 0 0 $val
+	min-width: $val
+
+=fadeout($tr)
+	opacity: 0
+	visibility: hidden
+	transition: opacity $tr, visibility $tr
+
+=fadein
+	opacity: 1
+	visibility: visible
+
+=circle($size)
+	height: $size + px
+	width: $size + px
+	border-radius: 50%
+
+=generate_grid($columns: 12, $sizeXs: false, $sizeSm: false, $sizeMd: false, $sizeLg: false, $padding: 15px)
+	.row
+		margin: 0px -#{$padding}
+		display: flex
+		flex-wrap: wrap
+	.col
+		padding: 0 $padding
+	@for $i from 1 through $columns
+		$width: percentage($i / $columns)
+		.col-#{$i}
+			flex: 0 0 $width
+			max-width: $width
+		@if($sizeLg)
+			.col-lg-#{$i}
+				+r(1259)
+					flex: 0 0 $width
+					max-width: $width
+		@if($sizeMd)
+			.col-md-#{$i}
+				+r(1023)
+					flex: 0 0 $width
+					max-width: $width
+		@if($sizeSm)
+			.col-sm-#{$i}
+			+r(767)
+				flex: 0 0 $width
+				max-width: $width
+		@if($sizeXs)
+			.col-xs-#{$i}
+			+r(550)
+				flex: 0 0 $width
+				max-width: $width

@@ -1,0 +1,28 @@
+//FONTS
+=fontpath($name, $name1, $file)
+	src: local($name), local($name1), url("../../fonts/" + $file + ".woff2") format("woff2"), url("../../fonts/" + $file + ".woff") format("woff")
+=fontdefault($style, $weight, $name)
+	font-family: $name
+	font-style: $style
+	font-weight: $weight
+
+
+// $familyRoboto: 'Roboto'
+// $familyCirce: 'Circe'
+
+// =roboto
+// 	font-family: 'Roboto', Arial, -apple-system, BlinkMacSystemFont, 'Oxygen', sans-serif
+// =circe
+// 	font-family: 'Circe', Arial, -apple-system, BlinkMacSystemFont, 'Oxygen', sans-serif
+
+	//CIRCE
+	
+// @font-face
+// 	+fontdefault(normal, 400, $familyCirce)
+// 	+fontpath('Circe', 'circe-regular', Circe-Regular)
+
+	//ROBOTO
+	
+// @font-face
+// 	+fontdefault(normal, 400, $familyRoboto)
+// 	+fontpath('Roboto', 'roboto-regular', Roboto-Regular)

@@ -1,0 +1,50 @@
+// CUSTOM COLUMN SIZES
+// $column-sizes: 5, 10, 15, 18, 20, 25, 30, 33.33, 35, 40, 45, 46, 50, 55, 54, 60, 65, 66.66, 70, 72, 80, 82, 85, 90, 100
+// $padding: 15px
+// @each $size in $column-sizes
+//   .col-#{round($size)}
+//     flex: 0 0 $size * 1%
+//     min-width: $size
+//     padding-left: $padding
+//     padding-right: $padding
+// .row
+//   display: flex
+//   flex-wrap: wrap
+//   margin: 0 -#{$padding}
+// [class*='col']
+//   padding: 0 $padding
+// GENERATE GRID EXAMPLE
+// CUSTOM PADDING ON BREAKPOINTS - NOT INCLUDED IN MIXIN
+// +generate_grid($columns: 3, $sizeXs: false, $sizeSm: false, $sizeMd: false, $sizeLg: true, $padding: 30px)
+
+html
+	scroll-behavior: smooth
+
+body
+	background-color: #fff
+	line-height: 1.4
+	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Oxygen', sans-serif
+	font-weight: 400
+	font-size: 16px
+	color: #000
+	min-width: 320px
+	margin: 0
+	padding: 0
+	border: 0
+	+smooth-font
+
+a
+	text-decoration: none
+	color: currentColor
+	&:hover
+		text-decoration: none
+
+.visually-hidden
+	position: absolute
+	width: 1px
+	height: 1px
+	margin: -1px
+	padding: 0
+	border: 0
+	clip: rect(0 0 0 0)
+	overflow: hidden
