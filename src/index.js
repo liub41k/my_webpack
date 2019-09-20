@@ -1,6 +1,9 @@
 // main files, libraries...
-
+// JS
 import './js/main'
 
-import './css/style.css'
+// CSS
+// import './css/style.css' // create css folder
+
+// SASS
 import './sass/main.sass'

@@ -1,13 +1,31 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# Default
+.gulp
+.idea
+.vscode
 
-# testing
-/coverage
+# Node
+node_modules
 
-# production
-/dist
+# Dist & test
+test
+dist
 
-# misc
-.DS_Store
+# BD, logs
+*.log
+*.sql
+*.sqlite
+
+# Other
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+
+# Special
+Thumbs.db
+Desktop.ini
+.DS_Store*
+ehthumbs.db
+Icon?
