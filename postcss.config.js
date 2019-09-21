@@ -3,16 +3,16 @@ module.exports = {
 	plugins: {
 		// 'postcss-import': {},
 		// 'postcss-preset-env': {},
-		'autoprefixer': {},
+		autoprefixer: {},
 		'css-mqpacker': {},
-		'cssnano': {
+		cssnano: {
 			preset: [
 				'default', {
 					discardComments: {
-						removeAll: true
-					}
-				}
-			]
-		}
-	}
- }
+						removeAll: true,
+					},
+				},
+			],
+		},
+	},
+};
